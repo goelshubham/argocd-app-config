@@ -1,0 +1,12 @@
+shard: "argocd"
+
+namespace: "argocd"
+
+config:
+  dev:
+    tag: master
+    pool: ingest
+
+##### xxxx BELOW CONFIG's IS CONSTANT PER ENVIRONMENT AND DOESN'T REQUIRE ANY MODIFICATION xxxx #####
+cluster:
+  name: "kind-k2-test"

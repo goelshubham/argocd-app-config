@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dev
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/goelshubham/argocd-app-config.git
+      revision: master
+      files:
+      - path: "cluster-configs/ingest/**/shard-*.yaml"
+  template:
+    metadata:
+      name: argocd
+    spec:
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      project: default
+      source:
+        repoURL: https://github.com/goelshubham/argocd-app-config.git
+        targetRevision: master
+        path: dev
+      destination:
+        name: https://kubernetes.default.svc
+        namespace: argocd
+
