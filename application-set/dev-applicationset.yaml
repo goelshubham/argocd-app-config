@@ -24,6 +24,6 @@ spec:
         targetRevision: HEAD
         path: kube/myapp
       destination:
-        name: https://kubernetes.default.svc
-        namespace: argocd
+        name: https://0805592D41617A44652F446174C670C2.gr7.us-west-2.eks.amazonaws.com
+        namespace: default
 
