@@ -1,12 +1,5 @@
-shard: "argocd"
-
-namespace: "argocd"
-
-config:
-  myapp:
-    tag: master
-    pool: ingest
-
-##### xxxx BELOW CONFIG's IS CONSTANT PER ENVIRONMENT AND DOESN'T REQUIRE ANY MODIFICATION xxxx #####
-cluster:
-  name: "kind-k2-test"
+aws_account: 123456
+asset_id: 11223344
+cluster.owner: cluster-admin@company.com
+cluster.name: kind-k2-test
+cluster.address: https://kubernetes.default.svc
