@@ -1,16 +1,10 @@
-aws_account: 123456
-asset_id: 11223344
-cluster.owner: cluster-admin@company.com
-cluster.name: kind-k2-test
-cluster.address: https://kubernetes.default.svc
-
 shard: "ingest-0"
-namespace: "argocd"
+
+namespace: "ingest-0"
 
 config:
-  myapp:
-    tag: master-04d35a8
-    pool: ingest
-  nsq-replicated:
-    tag: f35c7c7
+  argocd-app-config:
+    repoURL: https://github.com/goelshubham/argocd-app-config.git
+    tag: master
+    revision: master
     pool: ingest

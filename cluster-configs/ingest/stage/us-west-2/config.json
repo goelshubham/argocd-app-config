@@ -1,9 +1,21 @@
-{
-  "aws_account": "123456",
-  "asset_id": "11223344",
-  "cluster": {
-    "owner": "cluster-admin@company.com",
-    "name": "kind-k2-test",
-    "address": "https://kubernetes.default.svc"
-  }
-}
+shard: "ingest-0"
+
+namespace: "ingest-0"
+
+config:
+tracking-api:
+tag: master-04d35a8
+pool: ingest
+nsq-replicated:
+tag: f35c7c7
+pool: ingest
+
+##### xxxx BELOW CONFIG's IS CONSTANT PER ENVIRONMENT AND DOESN'T REQUIRE ANY MODIFICATION xxxx #####
+cluster:
+name: "infra-1"
+
+aws:
+region: "us-west-2"
+shortRegion: "usw2"
+accountName: "stage"
+accountId: "355207333203"
