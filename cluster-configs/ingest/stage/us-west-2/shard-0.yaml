@@ -3,3 +3,14 @@ asset_id: 11223344
 cluster.owner: cluster-admin@company.com
 cluster.name: kind-k2-test
 cluster.address: https://kubernetes.default.svc
+
+shard: "ingest-0"
+namespace: "argocd"
+
+config:
+  myapp:
+    tag: master-04d35a8
+    pool: ingest
+  nsq-replicated:
+    tag: f35c7c7
+    pool: ingest

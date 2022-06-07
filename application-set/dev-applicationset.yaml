@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/goelshubham/argocd-app-config.git
       revision: master
       files:
-      - path: "cluster-configs/ingest/**/shard-*.yaml"
+      - path: "cluster-configs/ingest/stage/us-west-2/config.json"
   template:
     metadata:
       name: argocd
