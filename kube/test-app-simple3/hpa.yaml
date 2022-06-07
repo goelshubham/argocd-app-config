@@ -1,0 +1,25 @@
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: test-app-simple3
+  namespace: test-app-simple3
+  labels:
+    app: test-app-simple3
+    k2.segment.com/app: test-app-simple3
+    k2.segment.com/repo: k2
+    segment.com/managed-by: k2
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: test-app-simple3
+  minReplicas: 2
+  maxReplicas: 2
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 75

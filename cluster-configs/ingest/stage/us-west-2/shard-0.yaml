@@ -3,7 +3,7 @@ shard: "argocd"
 namespace: "argocd"
 
 config:
-  dev:
+  myapp:
     tag: master
     pool: ingest
 
