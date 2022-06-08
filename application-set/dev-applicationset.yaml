@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/goelshubham/argocd-app-config.git
-      revision: main
+      revision: HEAD
       files:
       - path: "cluster-configs/ingest/stage/us-west-2/shard-0.yaml"
   template:
@@ -22,7 +22,7 @@ spec:
       source:
         repoURL: https://github.com/goelshubham/argocd-app-config.git
         targetRevision: HEAD
-        path: kube/myapp
+        path: kube
       destination:
         name: https://kubernetes.default.svc
         namespace: argocd
