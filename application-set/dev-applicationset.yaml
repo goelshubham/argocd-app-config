@@ -5,10 +5,10 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - list:
-        elements:
-          - cluster: kind-k2-test
-            url: https://127.0.0.1:63619
+  - list:
+      elements:
+      - cluster: kind-k2-test
+        url: https://127.0.0.1:63619
   template:
     metadata:
       name: myapp
@@ -23,6 +23,6 @@ spec:
         targetRevision: HEAD
         path: kube/myapp
       destination:
-        name: kind-k2-test
-        namespace: argocd
+        server: https://kubernetes.default.svc
+        namespace: default
 
