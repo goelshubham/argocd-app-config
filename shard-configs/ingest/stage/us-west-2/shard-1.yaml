@@ -1,0 +1,24 @@
+shard: "ingest-1"
+
+namespace: "ingest-1"
+
+config:
+  tracking-api:
+    tag: 1f4f1497
+    pool: ingest
+    target_groups:
+      - arn: arn:aws:elasticloadbalancing:us-west-2:355207333203:targetgroup/in20220608053654496600000001/0358c2f12aee6967
+        security_group_id: sg-03c078b9f2c394b58
+  nsq-replicated:
+    tag: 718ae263baede98af09407736d230a04e0f4c32f
+    pool: ingest
+
+##### xxxx BELOW CONFIG's IS CONSTANT PER ENVIRONMENT AND DOESN'T REQUIRE ANY MODIFICATION xxxx #####
+cluster:
+  name: "sre-compute"
+
+aws:
+  region: "us-west-2"
+  shortRegion: "usw2"
+  accountName: "stage"
+  accountId: "355207333203"

@@ -1,0 +1,38 @@
+shard: "processing-1"
+
+namespace: "processing-1"
+
+config:
+  pvc-cleaner:
+    tag: 114d3d7_45
+    pool: zookeeper
+  zookeeper:
+    tag: 3.4.14-test5-arm64
+    pool: zookeeper
+    replicas: "3"
+  kafka:
+    tag: 2.5.1-4-arm64kafka
+    pool: kafka
+    replicas: "3"
+  kafka-metrics-lag:
+    pool: kafka
+    namespace: monitoring
+    tag: update-ingest-target-2f96beb
+    kafkaVersion: 0.10.2.0
+    kafkaHost: kafka-ingest.ingest-0.segment.local
+  kafka-metrics-zone-affinity:
+    pool: kafka
+    namespace: monitoring
+    tag: master-6097845
+    kafkaVersion: 0.10.2.0
+    kafkaHost: kafka-ingest.ingest-0.segment.local
+
+##### xxxx BELOW CONFIG's IS CONSTANT PER ENVIRONMENT AND DOESN'T REQUIRE ANY MODIFICATION xxxx #####
+cluster:
+  name: "sre-compute"
+
+aws:
+  region: "us-west-2"
+  shortRegion: "usw2"
+  accountName: "stage"
+  accountId: "355207333203"
