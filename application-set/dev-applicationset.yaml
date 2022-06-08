@@ -8,7 +8,7 @@ spec:
     - list:
         elements:
           - cluster: kind-k2-test
-            url: https://kubernetes.default.svc
+            url: https://127.0.0.1:63619
   template:
     metadata:
       name: myapp
