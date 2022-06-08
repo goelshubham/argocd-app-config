@@ -4,12 +4,6 @@ metadata:
   name: myapp-applicationset
   namespace: argocd
 spec:
-  generators:
-  - git:
-      repoURL: https://github.com/goelshubham/argocd-app-config.git
-      revision: HEAD
-      files:
-      - path: "cluster-configs/ingest/stage/us-west-2/shard-0.yaml"
   template:
     metadata:
       name: myapp
