@@ -16,9 +16,9 @@ spec:
     spec:
       syncPolicy:
       - CreateNamespace=true
-        automated:
-          prune: true
-          selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
       project: default
       source:
         repoURL: https://github.com/goelshubham/argocd-app-config.git
