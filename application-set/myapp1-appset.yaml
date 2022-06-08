@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: myapp1-appset
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: kind-k2-test
+        url: https://127.0.0.1:63619
+  template:
+    metadata:
+      name: myapp1
+    spec:
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      project: default
+      source:
+        repoURL: https://github.com/goelshubham/argocd-app-config.git
+        targetRevision: HEAD
+        path: kube/myapp1
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default
+

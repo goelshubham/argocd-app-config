@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: myapp-applicationset
+  name: myapp2-appset
   namespace: argocd
 spec:
   generators:
@@ -11,7 +11,7 @@ spec:
         url: https://127.0.0.1:63619
   template:
     metadata:
-      name: myapp
+      name: myapp2
     spec:
       syncPolicy:
         automated:
@@ -21,7 +21,7 @@ spec:
       source:
         repoURL: https://github.com/goelshubham/argocd-app-config.git
         targetRevision: HEAD
-        path: kube/myapp1
+        path: kube/myapp2
       destination:
         server: https://kubernetes.default.svc
         namespace: default
