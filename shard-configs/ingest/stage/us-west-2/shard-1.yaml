@@ -1,6 +1,6 @@
-shard: "ingest-1"
+shard: "shard2"
 
-namespace: "ingest-1"
+namespace: "shard2"
 
 config:
   tracking-api:
