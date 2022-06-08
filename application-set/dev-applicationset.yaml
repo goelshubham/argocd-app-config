@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: git@github.com:goelshubham/argocd-app-config.git
+      repoURL: https://github.com/goelshubham/argocd-app-config.git
       revision: main
       files:
       - path: "cluster-configs/ingest/stage/us-west-2/shard-0.yaml"
@@ -20,8 +20,8 @@ spec:
           selfHeal: true
       project: default
       source:
-        repoURL: git@github.com:goelshubham/argocd-app-config.git
-        targetRevision: main
+        repoURL: https://github.com/goelshubham/argocd-app-config.git
+        targetRevision: HEAD
         path: kube/myapp
       destination:
         name: https://kubernetes.default.svc
