@@ -21,9 +21,9 @@ spec:
       project: default
       source:
         repoURL: git@github.com:goelshubham/argocd-app-config.git
-        targetRevision: HEAD
+        targetRevision: main
         path: kube/myapp
       destination:
         name: https://kubernetes.default.svc
-        namespace: default
+        namespace: argocd
 

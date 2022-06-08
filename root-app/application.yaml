@@ -6,15 +6,16 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/goelshubham/argocd-app-config.git
-    targetRevision: HEAD
+    directory:
+      jsonnet: {}
+      recurse: true
     path: application-set
-  destination: 
+    repoURL: https://github.com/goelshubham/argocd-app-config.git
+    targetRevision: main
+  destination:
+    namespace: argocd
     server: https://kubernetes.default.svc
-    namespace: default
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
     automated:
+      prune: true
       selfHeal: true
-      prune: false
