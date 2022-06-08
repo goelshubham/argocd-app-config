@@ -8,7 +8,7 @@ spec:
   - list:
       elements:
       - cluster: kind-k2-test
-        url: https://127.0.0.1:63619
+        url: https://127.0.0.1:63618
   template:
     metadata:
       name: myapp1
