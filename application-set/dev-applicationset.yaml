@@ -23,6 +23,6 @@ spec:
         targetRevision: HEAD
         path: kube/myapp
       destination:
-        name: https://kubernetes.default.svc
+        name: kind-k2-test
         namespace: argocd
 
