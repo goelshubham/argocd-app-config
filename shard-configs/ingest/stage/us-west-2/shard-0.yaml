@@ -2,6 +2,7 @@ shard: "shard-0"
 
 namespace: "shard-0"
 
+### Sample configurations
 config:
   tracking-api:
     tag: 1f4f1497

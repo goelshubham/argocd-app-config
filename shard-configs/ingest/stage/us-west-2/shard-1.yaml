@@ -1,7 +1,9 @@
-shard: "shard2"
+shard: "shard-1"
 
-namespace: "shard2"
+namespace: "shard-1"
 
+
+### Sample configurations
 config:
   tracking-api:
     tag: 1f4f1497
