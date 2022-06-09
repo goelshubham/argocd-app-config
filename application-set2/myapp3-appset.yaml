@@ -15,10 +15,11 @@ spec:
       name: '{{namespace}}-myapp3'
     spec:
       syncPolicy:
-        - CreateNamespace=true
-      automated:
-        prune: true
-        selfHeal: true
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
       project: default
       source:
         repoURL: https://github.com/goelshubham/argocd-app-config.git
