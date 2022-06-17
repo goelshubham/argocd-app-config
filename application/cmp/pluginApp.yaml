@@ -10,3 +10,6 @@ spec:
     path: kube/myapp3
     targetRevision: HEAD
     plugin: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
