@@ -9,10 +9,4 @@ spec:
     repoURL: https://github.com/goelshubham/argocd-app-config.git
     path: kube/myapp3
     targetRevision: HEAD
-    plugin:
-      env:
-        - name: FOO
-          value: myfoo
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: argocd
+    plugin: {}
