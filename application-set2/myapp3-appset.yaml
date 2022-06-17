@@ -5,11 +5,11 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - git:
+    - git: # generated parameters based on files or folders within a git repo
         repoURL: https://github.com/goelshubham/argocd-app-config.git
-        revision: HEAD
+        revision: HEAD # points to which branch, tag, build of repo
         files:
-          - path: "shard-configs/ingest/**/shard-*.yaml"
+          - path: "shard-configs/ingest/**/shard-*.yaml"  # this is where we can increase or decrease shards or provide dynamic parameters
   template:
     metadata:
       name: '{{namespace}}-myapp3'
@@ -22,9 +22,9 @@ spec:
           - CreateNamespace=true
       project: default
       source:
-        repoURL: https://github.com/goelshubham/argocd-app-config.git
+        repoURL: https://github.com/goelshubham/argocd-app-config.git  # this is mono repo
         targetRevision: HEAD
-        path: kube/myapp3
+        path: kube/myapp3 # this points to the K8s manifests created by k2 # we do this already in k2
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'

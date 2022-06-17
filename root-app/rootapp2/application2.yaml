@@ -9,7 +9,7 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: application-set2
+    path: application-set2  # This is the path where the application set of each individual app can be found
     repoURL: https://github.com/goelshubham/argocd-app-config.git
     targetRevision: HEAD
   destination:
