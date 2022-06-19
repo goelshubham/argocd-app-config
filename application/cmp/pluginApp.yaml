@@ -11,9 +11,6 @@ spec:
     targetRevision: HEAD
     plugin:
       name: cmp-plugin
-      env:
-        - name: FOO
-          value: myfoo
   syncPolicy:
     automated:
       prune: true
