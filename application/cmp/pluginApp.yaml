@@ -7,9 +7,20 @@ spec:
   project: default
   source:
     repoURL: https://github.com/goelshubham/argocd-app-config.git
-    path: kube/myapp3
+    path: unknown-manifest
     targetRevision: HEAD
-    plugin: {}
+    plugin:
+      name: cmp-plugin
+      env:
+        - name: FOO
+          value: myfoo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PruneLast=true
+      - CreateNamespace=true
   destination:
     server: https://kubernetes.default.svc
     namespace: default

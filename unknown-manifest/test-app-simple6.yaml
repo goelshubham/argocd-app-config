@@ -1,0 +1,69 @@
+# test-app-simple5 is only for Argo CD testing purpose only
+# if you deployed it manually, your changes will be reverted by Argo CD 
+apiVersion: platform.segment.com/v1alpha1
+kind: SegmentApplicationExperimental
+cell: core
+metadata:
+  name: test-app-simple6
+  namespace: test-app-simple6
+spec:
+  targets:
+  - name: stage-euw1-pv-toy
+    cluster: stage-euw1:eu-west-1:pv-toy
+    replicatedService: &replicatedService
+      replicas: 2
+      env: &env
+        TEST_KEY1: test stage value
+        TEST_KEY2: test value 2
+      mainContainers: &containers
+      - name: main
+        imageName: k2
+        command:
+        - sleep
+        - '99999994'
+        resources:
+          limits:
+            cpu: 0.2
+            memory: 100Mi
+  shards:
+    - name: shard-0
+      namespace: "shard-0"
+      config:
+        test-app-simple6:
+          image:
+            tag: abc
+          targetRevision: abc
+          pool: ingest
+        test-app-simple7:
+          image:
+            tag: abc
+          targetRevision: abc
+          pool: ingest
+      cluster:
+        name: "sre-compute"
+    - name: shard-1
+      namespace: "shard-1"
+      config:
+        test-app-simple6:
+          image:
+            tag: 1f4f1497
+          targetRevision: DP-73/helm-chart
+          pool: ingest
+          target_groups:
+            - arn: arn:aws:elasticloadbalancing:us-west-2:355207333203:targetgroup/in20220608053654496600000001/0358c2f12aee6967
+              security_group_id: sg-03c078b9f2c394b58
+        test-app-simple7:
+          image:
+            tag: 718ae263baede98af09407736d230a04e0f4c32f
+          targetRevision: DP-74/helm-chart
+          pool: ingest
+
+      ##### xxxx BELOW CONFIG's IS CONSTANT PER ENVIRONMENT AND DOESN'T REQUIRE ANY MODIFICATION xxxx #####
+      cluster:
+        name: "sre-compute"
+
+      aws:
+        region: "us-west-2"
+        shortRegion: "usw2"
+        accountName: "stage"
+        accountId: "355207333203"
