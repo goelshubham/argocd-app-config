@@ -10,6 +10,7 @@ spec:
     path: guestbook
     targetRevision: HEAD
     plugin:
+      name: cmp-plugin
       env:
       - name: FOO
         value: bar
