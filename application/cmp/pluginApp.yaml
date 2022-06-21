@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
-    path: unknown-manifest
-    targetRevision: guestbook
+    repoURL: https://github.com/goelshubham/argocd-app-config.git
+    path: guestbook
+    targetRevision: HEAD
     plugin:
       name: cmp-plugin
       env:
