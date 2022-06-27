@@ -22,7 +22,7 @@ spec:
           - CreateNamespace=true
       project: default
       source:
-        repoURL: https://github.com/segmentio/tracking-api.git
+        repoURL: https://github.com/goelshubham/argocd-app-config.git
         targetRevision: HEAD
         path: .k2/tracking-api.yaml
         plugin:
