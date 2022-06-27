@@ -22,9 +22,9 @@ spec:
           - CreateNamespace=true
       project: default
       source:
-        repoURL: https://github.com/tendant/simple-app.git
-        targetRevision: HEAD
-        path: /
+        repoURL: https://github.com/nginxinc/kubernetes-ingress
+        targetRevision: v2.2.2
+        path: deployments/helm-chart
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
