@@ -24,7 +24,7 @@ spec:
       source:
         repoURL: https://github.com/tendant/simple-app.git
         targetRevision: HEAD
-        path:
+        path: /
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
