@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/goelshubham/argocd-app-config.git
         revision: HEAD # points to which branch, tag, build of repo
         files:
-          - path: "shard-configs/ingest/**/shard-*.yaml"  # this is where we can increase or decrease shards or provide dynamic parameters
+          - path: "shard-configs/ingest/**/shard-*.yaml"
   template:
     metadata:
       name: '{{namespace}}-myapp3'
@@ -22,14 +22,14 @@ spec:
           - CreateNamespace=true
       project: default
       source:
-        repoURL: https://github.com/goelshubham/argocd-app-config.git  # this is mono repo
+        repoURL: https://github.com/segmentio/tracking-api.git
         targetRevision: HEAD
-        path: kube/myapp3 # this points to the K8s manifests created by k2 # we do this already in k2
+        path: .k2/tracking-api.yaml
         plugin:
           name: cmp-plugin
           env:
-            - name: namespace
-              value: shubham
+            - name: image
+              value: nginx:1.14.2
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
