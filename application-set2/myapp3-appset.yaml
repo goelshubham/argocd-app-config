@@ -25,6 +25,11 @@ spec:
         repoURL: https://github.com/goelshubham/argocd-app-config.git  # this is mono repo
         targetRevision: HEAD
         path: kube/myapp3 # this points to the K8s manifests created by k2 # we do this already in k2
+        plugin:
+          name: cmp-plugin
+          env:
+            - name: namespace
+              value: shubham
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
