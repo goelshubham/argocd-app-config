@@ -22,9 +22,9 @@ spec:
           - CreateNamespace=true
       project: default
       source:
-        repoURL: https://github.com/goelshubham/argocd-app-config.git
+        repoURL: https://github.com/tendant/simple-app.git
         targetRevision: HEAD
-        path: kube/myapp4
+        path:
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
