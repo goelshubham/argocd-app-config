@@ -29,7 +29,9 @@ spec:
           name: cmp-plugin
           env:
             - name: image
-              value: "{{config.image}}"   # nginx:1.14.2
+              value: "{{config.image}}"  # dynamic parameter passed from shard config files
+            - name replicas
+            - value: '{{config.replicas}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
