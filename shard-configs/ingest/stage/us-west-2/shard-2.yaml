@@ -2,4 +2,5 @@ shard: "shard-2"
 namespace: "shard-2"
 
 config:
-  image: nginx:1.14.0
+  image: nginx:1.14.2
+  replicas: 3

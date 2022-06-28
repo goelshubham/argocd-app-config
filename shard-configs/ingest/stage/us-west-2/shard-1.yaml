@@ -4,3 +4,4 @@ namespace: "shard-1"
 
 config:
   image: nginx:1.14.1
+  replicas: 2
