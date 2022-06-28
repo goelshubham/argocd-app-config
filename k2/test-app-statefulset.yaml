@@ -1,0 +1,49 @@
+apiVersion: platform.segment.com/v1alpha1
+kind: SegmentApplicationExperimental
+metadata:
+  name: test-app-statefulset
+  namespace: test-app-statefulset
+spec:
+  targets:
+    - name: stage-euw1-core
+      cluster: stage-euw1:eu-west-1:core
+      allowBranches:
+        - main
+        - master
+      replicatedService:
+        statefulSet:
+          updateStrategy:
+            type: RollingUpdate
+            rollingUpdate:
+              partition: 0
+          volumeClaimTemplates:
+            - metadata:
+                name: data
+                namespace: test-app-statefulset
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 2
+        replicas: 2
+        iamRoleName: test-app-statefulset
+        mainContainer: &container
+          imageName: k2
+          imageRegistry: 528451384384.dkr.ecr.us-west-2.amazonaws.com
+          command:
+            - /usr/local/bin/k2-test-app
+            - "--addr=:8090"
+            - "--start-delay=20s"
+          resources:
+            limits:
+              cpu: 0.2
+              memory: 100Mi
+          ports:
+            - name: http
+              containerPort: 8090
+          healthCheckPath: "/internal/health"
+          volumeMounts:
+            - name: data
+              mountPath: /data
+        terminationGracePeriodSeconds: 20
