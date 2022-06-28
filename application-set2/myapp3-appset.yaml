@@ -30,7 +30,7 @@ spec:
           env:
             - name: image
               value: "{{config.image}}"  # dynamic parameter passed from shard config files
-            - name replicas
+            - name: replicas
             - value: '{{config.replicas}}'
       destination:
         server: https://kubernetes.default.svc
