@@ -24,7 +24,7 @@ spec:
       source:
         repoURL: https://github.com/goelshubham/argocd-app-config.git
         targetRevision: HEAD
-        path: k2
+        path: kube/myapp3
         plugin:
           name: cmp-plugin
           env:
