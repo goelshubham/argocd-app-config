@@ -5,3 +5,13 @@ namespace: "shard-0"
 config:
   image: nginx:1.14.0
   replicas: 1
+  targetGroupBinding:
+    - name: tracking-api-0
+        securityGroupID
+        targetARN
+    - name: tracking-api-1
+        securityGroupID
+        targetARN
+    - name: tracking-api-2
+        securityGroupID
+        targetARN

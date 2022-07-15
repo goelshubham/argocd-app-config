@@ -22,16 +22,18 @@ spec:
           - CreateNamespace=true
       project: default
       source:
-        repoURL: https://github.com/goelshubham/argocd-app-config.git
+        repoURL: tracking-api repo # mono-repo
         targetRevision: HEAD
-        path: .k2
+        path: // folder of k2 file
         plugin:
           name: cmp-plugin
           env:
-            - name: image
+            - name: image  # {{argocd_env_image}}
               value: "{{config.image}}"  # dynamic parameter passed from shard config files
             - name: replicas
               value: "{{config.replicas}}"
+            - targetGroupBinding1:
+                -security
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'

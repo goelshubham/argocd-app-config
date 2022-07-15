@@ -22,9 +22,10 @@ spec:
           - CreateNamespace=true
       project: default
       source:
-        repoURL: https://github.com/helm/examples.git
+        repoURL: https://github.com/segmentio/replicated.git
         targetRevision: HEAD
         path: charts/hello-world
+
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
