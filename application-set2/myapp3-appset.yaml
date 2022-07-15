@@ -24,7 +24,7 @@ spec:
       source:
         repoURL: tracking-api repo # mono-repo
         targetRevision: HEAD
-        path: // folder of k2 file
+        path: # path to k2 file
         plugin:
           name: cmp-plugin
           env:
@@ -32,8 +32,8 @@ spec:
               value: "{{config.image}}"  # dynamic parameter passed from shard config files
             - name: replicas
               value: "{{config.replicas}}"
-            - targetGroupBinding1:
-                -security
+            - name: targetGroupARN
+              value: "{{config.targetGroupARN}}"
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
